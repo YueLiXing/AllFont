@@ -1,0 +1,27 @@
+//
+//  PrefixHeader.pch
+//  All-Font
+//
+//  Created by yuelixing on 15/12/7.
+//  Copyright © 2015年 YueLiXing. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIViewController+HUD.h"
+
+#define RGB(r, g, b)                        [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define RGBA(r, g, b, a)                    [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define RGBColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
+
+#define RGBColorA(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:(a)]
+
+
+
+#define AppWidth                         [[UIScreen mainScreen] bounds].size.width
+#define AppHeight                        [[UIScreen mainScreen] bounds].size.height
+
+
+#endif /* PrefixHeader_pch */
