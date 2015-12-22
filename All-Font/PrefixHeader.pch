@@ -10,6 +10,8 @@
 #define PrefixHeader_pch
 
 #import "UIViewController+HUD.h"
+#import "UIImage+Color.h"
+#import "NSString+Extension.h"
 
 #define RGB(r, g, b)                        [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
 #define RGBA(r, g, b, a)                    [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
@@ -23,5 +25,6 @@
 #define AppWidth                         [[UIScreen mainScreen] bounds].size.width
 #define AppHeight                        [[UIScreen mainScreen] bounds].size.height
 
+#import "UIView+MJExtension.h"
 
 #endif /* PrefixHeader_pch */

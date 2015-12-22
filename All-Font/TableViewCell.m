@@ -8,16 +8,58 @@
 
 #import "TableViewCell.h"
 
+@interface TableViewCell ()
+
+@property (nonatomic, retain) UILabel * titleLabel;
+
+@property (nonatomic, retain) UILabel * subTitleLabel;
+
+@end
+
 @implementation TableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.subTitleLabel];
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setTitle:(NSString *)title SubTitle:(NSString *)subTitle Color:(UIColor *)color {
+    self.titleLabel.textColor = color;
+    self.subTitleLabel.textColor = color;
+    
+    self.titleLabel.text = title;
+    self.subTitleLabel.text = subTitle;
+    self.titleLabel.font = [UIFont fontWithName:subTitle size:16];
+    self.subTitleLabel.font = [UIFont fontWithName:subTitle size:13];
+    
+    self.titleLabel.mj_y = 5;
+    self.titleLabel.mj_size = [self.titleLabel sizeOfFullWithWidth:AppWidth];
+    self.subTitleLabel.mj_y = self.titleLabel.max_y+5;
+    self.subTitleLabel.mj_size = [self.subTitleLabel sizeOfFullWithWidth:AppWidth];
+}
 
-    // Configure the view for the selected state
+
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.mj_x = 20;
+        _titleLabel.mj_width = AppWidth-40;
+    }
+    return _titleLabel;
+}
+
+- (UILabel *)subTitleLabel {
+    if (!_subTitleLabel) {
+        _subTitleLabel = [[UILabel alloc] init];
+        _subTitleLabel.mj_x = 20;
+        _subTitleLabel.mj_width = AppWidth-40;
+    }
+    return _subTitleLabel;
 }
 
 @end

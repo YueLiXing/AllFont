@@ -11,5 +11,6 @@
 @interface NextViewController : UITableViewController
 
 @property (nonatomic, copy) NSString * text;
+@property (nonatomic, retain) UIColor * color;
 
 @end

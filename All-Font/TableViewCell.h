@@ -10,4 +10,6 @@
 
 @interface TableViewCell : UITableViewCell
 
+- (void)setTitle:(NSString *)title SubTitle:(NSString *)subTitle Color:(UIColor *)color;
+
 @end

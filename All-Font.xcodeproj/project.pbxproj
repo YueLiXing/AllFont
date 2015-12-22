@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3DC320729C261111181246B5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3AC2921805DC41E0020B4F /* libPods.a */; };
+		CDDA904F1C292A0C00130A6E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDA904E1C292A0C00130A6E /* UIImage+Color.m */; };
+		CDDA90521C292D8600130A6E /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDA90511C292D8600130A6E /* NSString+Extension.m */; };
 		CDE6F5641C159416001859B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F5631C159416001859B4 /* main.m */; };
 		CDE6F5671C159416001859B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F5661C159416001859B4 /* AppDelegate.m */; };
 		CDE6F56A1C159416001859B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F5691C159416001859B4 /* ViewController.m */; };
@@ -16,11 +18,16 @@
 		CDE6F57C1C15958C001859B4 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F57B1C15958C001859B4 /* NextViewController.m */; };
 		CDE6F5821C159918001859B4 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F5801C159918001859B4 /* TableViewCell.m */; };
 		CDE6F5861C159969001859B4 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F5851C159969001859B4 /* UIViewController+HUD.m */; };
+		CDFDD92E1C23A0A200B00378 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFDD92D1C23A0A200B00378 /* UIView+MJExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5370251E5E2F75DCD7EBDACB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99605A85382EAEC265C260F0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CDDA904D1C292A0C00130A6E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		CDDA904E1C292A0C00130A6E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		CDDA90501C292D8600130A6E /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		CDDA90511C292D8600130A6E /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		CDE6F55F1C159416001859B4 /* All-Font.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "All-Font.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE6F5631C159416001859B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDE6F5651C159416001859B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,6 +44,8 @@
 		CDE6F5801C159918001859B4 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		CDE6F5841C159969001859B4 /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
 		CDE6F5851C159969001859B4 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		CDFDD92C1C23A0A200B00378 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
+		CDFDD92D1C23A0A200B00378 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		FC3AC2921805DC41E0020B4F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,8 +99,14 @@
 		CDE6F5611C159416001859B4 /* All-Font */ = {
 			isa = PBXGroup;
 			children = (
+				CDDA90501C292D8600130A6E /* NSString+Extension.h */,
+				CDDA90511C292D8600130A6E /* NSString+Extension.m */,
+				CDFDD92C1C23A0A200B00378 /* UIView+MJExtension.h */,
+				CDFDD92D1C23A0A200B00378 /* UIView+MJExtension.m */,
 				CDE6F5841C159969001859B4 /* UIViewController+HUD.h */,
 				CDE6F5851C159969001859B4 /* UIViewController+HUD.m */,
+				CDDA904D1C292A0C00130A6E /* UIImage+Color.h */,
+				CDDA904E1C292A0C00130A6E /* UIImage+Color.m */,
 				CDE6F57E1C1598FE001859B4 /* View */,
 				CDE6F5791C159566001859B4 /* ViewController */,
 				CDE6F5651C159416001859B4 /* AppDelegate.h */,
@@ -256,8 +271,11 @@
 				CDE6F5861C159969001859B4 /* UIViewController+HUD.m in Sources */,
 				CDE6F56A1C159416001859B4 /* ViewController.m in Sources */,
 				CDE6F57C1C15958C001859B4 /* NextViewController.m in Sources */,
+				CDFDD92E1C23A0A200B00378 /* UIView+MJExtension.m in Sources */,
 				CDE6F5671C159416001859B4 /* AppDelegate.m in Sources */,
+				CDDA904F1C292A0C00130A6E /* UIImage+Color.m in Sources */,
 				CDE6F5821C159918001859B4 /* TableViewCell.m in Sources */,
+				CDDA90521C292D8600130A6E /* NSString+Extension.m in Sources */,
 				CDE6F5641C159416001859B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +381,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/All-Font/PrefixHeader.pch";
 				INFOPLIST_FILE = "All-Font/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tutuim..All-Font";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,6 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/All-Font/PrefixHeader.pch";
 				INFOPLIST_FILE = "All-Font/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tutuim..All-Font";
 				PRODUCT_NAME = "$(TARGET_NAME)";
