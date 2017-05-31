@@ -1,10 +1,15 @@
 PODS:
-  - MBProgressHUD (0.9.1)
+  - MBProgressHUD (1.0.0)
+  - UITableView+FDTemplateLayoutCell (1.6)
 
 DEPENDENCIES:
   - MBProgressHUD
+  - UITableView+FDTemplateLayoutCell
 
 SPEC CHECKSUMS:
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 23bcd5102a87f09d6ba4821a16eae27cd42ea13b
+
+COCOAPODS: 1.2.1

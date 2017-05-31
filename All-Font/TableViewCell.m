@@ -22,6 +22,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 //        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        self.fd_enforceFrameLayout = YES;
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.subTitleLabel];
     }
@@ -30,12 +31,12 @@
 
 - (void)setTitle:(NSString *)title SubTitle:(NSString *)subTitle Color:(UIColor *)color {
     self.titleLabel.textColor = color;
-    self.subTitleLabel.textColor = color;
+//    self.subTitleLabel.textColor = color;
     
     self.titleLabel.text = title;
     self.subTitleLabel.text = subTitle;
-    self.titleLabel.font = [UIFont fontWithName:subTitle size:16];
-    self.subTitleLabel.font = [UIFont fontWithName:subTitle size:13];
+    self.titleLabel.font = [UIFont fontWithName:subTitle size:40];
+    self.subTitleLabel.font = [UIFont systemFontOfSize:13];
     
     self.titleLabel.mj_y = 5;
     self.titleLabel.mj_size = [self.titleLabel sizeOfFullWithWidth:AppWidth];
@@ -43,6 +44,9 @@
     self.subTitleLabel.mj_size = [self.subTitleLabel sizeOfFullWithWidth:AppWidth];
 }
 
+- (CGSize)sizeThatFits:(CGSize)size {
+    return CGSizeMake(size.width, self.subTitleLabel.max_y+3);
+}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {

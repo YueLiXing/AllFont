@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DC320729C261111181246B5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3AC2921805DC41E0020B4F /* libPods.a */; };
+		BFB050AB7A4420884AD08BF8 /* libPods-All-Font.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 039354FF48CF3EC91E828279 /* libPods-All-Font.a */; };
 		CDDA904F1C292A0C00130A6E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDA904E1C292A0C00130A6E /* UIImage+Color.m */; };
 		CDDA90521C292D8600130A6E /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDA90511C292D8600130A6E /* NSString+Extension.m */; };
 		CDE6F5641C159416001859B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE6F5631C159416001859B4 /* main.m */; };
@@ -22,8 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5370251E5E2F75DCD7EBDACB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		99605A85382EAEC265C260F0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		039354FF48CF3EC91E828279 /* libPods-All-Font.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-All-Font.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B029121F36CC6778AAA8913 /* Pods-All-Font.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Font.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-Font/Pods-All-Font.release.xcconfig"; sourceTree = "<group>"; };
+		BFBD599A901A119929EF7994 /* Pods-All-Font.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Font.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-Font/Pods-All-Font.debug.xcconfig"; sourceTree = "<group>"; };
 		CDDA904D1C292A0C00130A6E /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
 		CDDA904E1C292A0C00130A6E /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		CDDA90501C292D8600130A6E /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		CDE6F5851C159969001859B4 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
 		CDFDD92C1C23A0A200B00378 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		CDFDD92D1C23A0A200B00378 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		FC3AC2921805DC41E0020B4F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,26 +54,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DC320729C261111181246B5 /* libPods.a in Frameworks */,
+				BFB050AB7A4420884AD08BF8 /* libPods-All-Font.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080B6F6563EBF4FCB0366C16 /* Pods */ = {
+		15CB3E9F69BB5D7A779A5CFC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5370251E5E2F75DCD7EBDACB /* Pods.debug.xcconfig */,
-				99605A85382EAEC265C260F0 /* Pods.release.xcconfig */,
+				BFBD599A901A119929EF7994 /* Pods-All-Font.debug.xcconfig */,
+				6B029121F36CC6778AAA8913 /* Pods-All-Font.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C1EA2A14D8032D78E1990050 /* Frameworks */ = {
+		3EC0CE928A71C02C5BFC60DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC3AC2921805DC41E0020B4F /* libPods.a */,
+				039354FF48CF3EC91E828279 /* libPods-All-Font.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,8 +83,8 @@
 			children = (
 				CDE6F5611C159416001859B4 /* All-Font */,
 				CDE6F5601C159416001859B4 /* Products */,
-				080B6F6563EBF4FCB0366C16 /* Pods */,
-				C1EA2A14D8032D78E1990050 /* Frameworks */,
+				15CB3E9F69BB5D7A779A5CFC /* Pods */,
+				3EC0CE928A71C02C5BFC60DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,12 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDE6F5761C159416001859B4 /* Build configuration list for PBXNativeTarget "All-Font" */;
 			buildPhases = (
-				B6118B57F996498FFE0316D7 /* Check Pods Manifest.lock */,
+				F95C8C86D1CCC31EC75C2B9A /* [CP] Check Pods Manifest.lock */,
 				CDE6F55B1C159416001859B4 /* Sources */,
 				CDE6F55C1C159416001859B4 /* Frameworks */,
 				CDE6F55D1C159416001859B4 /* Resources */,
-				9E31CED3B9BE4074CCD466A7 /* Embed Pods Frameworks */,
-				15AA6BC6E6F33A142765C831 /* Copy Pods Resources */,
+				15B5ED7E57BBC70141CA0BB9 /* [CP] Embed Pods Frameworks */,
+				C52510BF3756D3976A8E831F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,6 +182,7 @@
 				TargetAttributes = {
 					CDE6F55E1C159416001859B4 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = XD9DMGBJLW;
 					};
 				};
 			};
@@ -216,49 +217,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15AA6BC6E6F33A142765C831 /* Copy Pods Resources */ = {
+		15B5ED7E57BBC70141CA0BB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-All-Font/Pods-All-Font-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9E31CED3B9BE4074CCD466A7 /* Embed Pods Frameworks */ = {
+		C52510BF3756D3976A8E831F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-All-Font/Pods-All-Font-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B6118B57F996498FFE0316D7 /* Check Pods Manifest.lock */ = {
+		F95C8C86D1CCC31EC75C2B9A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -376,9 +377,10 @@
 		};
 		CDE6F5771C159416001859B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5370251E5E2F75DCD7EBDACB /* Pods.debug.xcconfig */;
+			baseConfigurationReference = BFBD599A901A119929EF7994 /* Pods-All-Font.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XD9DMGBJLW;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/All-Font/PrefixHeader.pch";
 				INFOPLIST_FILE = "All-Font/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -390,9 +392,10 @@
 		};
 		CDE6F5781C159416001859B4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99605A85382EAEC265C260F0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6B029121F36CC6778AAA8913 /* Pods-All-Font.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = XD9DMGBJLW;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/All-Font/PrefixHeader.pch";
 				INFOPLIST_FILE = "All-Font/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

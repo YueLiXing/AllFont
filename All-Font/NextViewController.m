@@ -24,6 +24,7 @@ static NSString * identifier = @"TableViewCell";
     
     self.title = self.text;
     
+    self.tableView.rowHeight = 100;
     [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:identifier];
     
     NSArray * array = [UIFont familyNames];
@@ -43,11 +44,9 @@ static NSString * identifier = @"TableViewCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString * title = self.text;
-    NSString * subTitle = self.dataArray[indexPath.row];
-    CGSize size = [title sizeWithFont:[UIFont fontWithName:subTitle size:16] maxSize:CGSizeMake(AppWidth, 40)];
-    CGSize sizeOfSub = [subTitle sizeWithFont:[UIFont fontWithName:subTitle size:13] maxSize:CGSizeMake(AppWidth, 40)];
-    return 5+size.height+5+sizeOfSub.height+10;
+    return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(id cell) {
+        [cell setTitle:self.text SubTitle:self.dataArray[indexPath.row] Color:self.color];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

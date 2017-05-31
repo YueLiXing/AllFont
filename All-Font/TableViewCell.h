@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UITableView+FDTemplateLayoutCell.h>
 
 @interface TableViewCell : UITableViewCell
 
