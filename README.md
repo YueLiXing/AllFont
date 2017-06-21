@@ -6,7 +6,6 @@
 在字体预览界面，点击对应的 cell，可直接将字体名字复制到粘贴板。
 
 
-![输入内容](http://ohuwocmkk.bkt.clouddn.com/all_font/IMG_1547.PNG) 
-
-![字体显示](http://ohuwocmkk.bkt.clouddn.com/all_font/IMG_1548.PNG)
+| ![输入内容](http://ohuwocmkk.bkt.clouddn.com/all_font/IMG_1547.PNG)  | ![字体显示](http://ohuwocmkk.bkt.clouddn.com/all_font/IMG_1548.PNG) |  
+| --- | --- |
 
