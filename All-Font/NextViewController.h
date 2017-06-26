@@ -11,6 +11,9 @@
 @interface NextViewController : UITableViewController
 
 @property (nonatomic, copy) NSString * text;
+@property (nonatomic, copy) NSString * text1;
 @property (nonatomic, retain) UIColor * color;
+
+@property (nonatomic, assign) CGFloat fontSize;
 
 @end

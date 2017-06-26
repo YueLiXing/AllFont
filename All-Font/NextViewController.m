@@ -13,6 +13,8 @@ static NSString * identifier = @"TableViewCell";
 
 @interface NextViewController ()
 
+@property (nonatomic, assign) BOOL isSingleLine;
+
 @property (nonatomic, retain) NSMutableArray<NSString *> * dataArray;
 
 @end
@@ -22,7 +24,8 @@ static NSString * identifier = @"TableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.text;
+    self.isSingleLine = !(self.text1 && self.text1.length > 0);
+    self.title = @"预览";
     
     self.tableView.rowHeight = 100;
     [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:identifier];
@@ -39,13 +42,20 @@ static NSString * identifier = @"TableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    [cell setTitle:self.text SubTitle:self.dataArray[indexPath.row] Color:self.color];
+    [self configCell:cell IndexPath:indexPath];
     return cell;
 }
 
+- (void)configCell:(TableViewCell *)cell IndexPath:(NSIndexPath *)indexPath {
+    cell.isSingleLine = self.isSingleLine;
+    cell.fontSize = self.fontSize;
+    [cell setTitle:self.text SubTitle:self.text1 FontName:self.dataArray[indexPath.row] Color:self.color];
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(id cell) {
-        [cell setTitle:self.text SubTitle:self.dataArray[indexPath.row] Color:self.color];
+    return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(TableViewCell * cell) {
+        [self configCell:cell IndexPath:indexPath];
     }];
 }
 

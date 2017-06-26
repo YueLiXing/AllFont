@@ -11,6 +11,9 @@
 
 @interface TableViewCell : UITableViewCell
 
-- (void)setTitle:(NSString *)title SubTitle:(NSString *)subTitle Color:(UIColor *)color;
+@property (nonatomic, assign) BOOL isSingleLine;
+@property (nonatomic, assign) CGFloat fontSize;
+
+- (void)setTitle:(NSString *)title SubTitle:(NSString *)subTitle FontName:(NSString *)fontName Color:(UIColor *)color;
 
 @end

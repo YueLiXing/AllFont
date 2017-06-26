@@ -10,6 +10,7 @@
 #import "NextViewController.h"
 
 static NSString * kDefaultString = @"kDefaultString";
+static NSString * kDefaultString1 = @"kDefaultString1";
 static NSString * kColorR = @"kColorR";
 static NSString * kColorG = @"kColorG";
 static NSString * kColorB = @"kColorB";
@@ -17,12 +18,15 @@ static NSString * kColorB = @"kColorB";
 @interface ViewController () <UITextFieldDelegate>
 
 @property (retain, nonatomic) UITextField * textField;
+@property (retain, nonatomic) UITextField * textField1;
 
 @property (retain, nonatomic) UITextField * rTextField;
 @property (retain, nonatomic) UITextField * gTextField;
 @property (retain, nonatomic) UITextField * bTextField;
 
-@property (nonatomic, retain) UIButton * finishButton;
+@property (nonatomic, retain) UIButton * finishButton0;
+@property (nonatomic, retain) UIButton * finishButton1;
+@property (nonatomic, retain) UIButton * finishButton2;
 
 @end
 
@@ -36,24 +40,35 @@ static NSString * kColorB = @"kColorB";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.textField];
+    [self.view addSubview:self.textField1];
     [self.view addSubview:self.rTextField];
     [self.view addSubview:self.gTextField];
     [self.view addSubview:self.bTextField];
-    [self.view addSubview:self.finishButton];
+    [self.view addSubview:self.finishButton0];
+    [self.view addSubview:self.finishButton1];
+    [self.view addSubview:self.finishButton2];
     
     self.textField.mj_y = 64+5;
-    self.rTextField.mj_centerX = self.gTextField.mj_centerX = self.bTextField.mj_centerX = self.textField.mj_centerX = AppWidth/2.0;
-    self.rTextField.mj_y = self.textField.max_y+5;
+    self.rTextField.mj_centerX = self.gTextField.mj_centerX = self.bTextField.mj_centerX = self.textField.mj_centerX = self.textField1.mj_centerX = AppWidth/2.0;
+    self.textField1.mj_y = self.textField.max_y+5;
+    self.rTextField.mj_y = self.textField1.max_y+5;
     self.gTextField.mj_y = self.rTextField.max_y+5;
     self.bTextField.mj_y = self.gTextField.max_y+5;
     
-    self.finishButton.mj_size = CGSizeMake(100, 40);
-    self.finishButton.mj_centerX = AppWidth/2.0;
-    self.finishButton.mj_y = self.bTextField.max_y+5;
-    [self.finishButton makeCorRadius];
+    self.finishButton0.mj_size = CGSizeMake(100, 40);
+    self.finishButton1.mj_size = CGSizeMake(100, 40);
+    self.finishButton2.mj_size = CGSizeMake(120, 60);
+    
+    self.finishButton0.mj_centerX = self.finishButton1.mj_centerX = self.finishButton2.mj_centerX = AppWidth/2.0;
+    self.finishButton0.mj_y = self.bTextField.max_y+5;
+    self.finishButton1.mj_y = self.finishButton0.max_y+5;
+    self.finishButton2.mj_y = self.finishButton1.max_y+5;
+    [self.finishButton0 makeCorRadius];
+    [self.finishButton1 makeCorRadius];
+    [self.finishButton2 makeCorRadius];
 }
 
-- (void)finishButtonClick {
+- (void)finishButtonClick:(UIButton *)button {
     if (self.textField.text && self.textField.text.length > 0) {
         int r = self.rTextField.text.intValue;
         int g = self.gTextField.text.intValue;
@@ -63,6 +78,13 @@ static NSString * kColorB = @"kColorB";
                 if (0 <= b && b <= 255) {
                     [[NSUserDefaults standardUserDefaults] setObject:self.textField.text forKey:kDefaultString];
                     
+                    if (self.textField1.text && self.textField1.text.length > 0) {
+                        [[NSUserDefaults standardUserDefaults] setObject:self.textField1.text forKey:kDefaultString1];
+                    } else {
+                        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kDefaultString1];
+                    }
+                    
+                    
                     [[NSUserDefaults standardUserDefaults] setObject:self.rTextField.text forKey:kColorR];
                     [[NSUserDefaults standardUserDefaults] setObject:self.gTextField.text forKey:kColorG];
                     [[NSUserDefaults standardUserDefaults] setObject:self.bTextField.text forKey:kColorB];
@@ -70,7 +92,9 @@ static NSString * kColorB = @"kColorB";
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     
                     NextViewController * nextVC = [[NextViewController alloc] init];
+                    nextVC.fontSize = (CGFloat)button.tag;
                     nextVC.text = self.textField.text;
+                    nextVC.text1 = self.textField1.text;
                     nextVC.color = RGB(r, g, b);
                     [self.navigationController pushViewController:nextVC animated:YES];
                     return;
@@ -90,15 +114,32 @@ static NSString * kColorB = @"kColorB";
         _textField = [[UITextField alloc] init];
         _textField.textAlignment = NSTextAlignmentCenter;
         _textField.borderStyle = UITextBorderStyleRoundedRect;
+        _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.delegate = self;
         _textField.mj_size = CGSizeMake(AppWidth-40, 40);
-        _textField.placeholder = @"请输入默认显示的文字";
+        _textField.placeholder = @"请输入第一行的文字";
         NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultString];
         if (string) {
             _textField.text = string;
         }
     }
     return _textField;
+}
+- (UITextField *)textField1 {
+    if (!_textField1) {
+        _textField1 = [[UITextField alloc] init];
+        _textField1.textAlignment = NSTextAlignmentCenter;
+        _textField1.borderStyle = UITextBorderStyleRoundedRect;
+        _textField1.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _textField1.delegate = self;
+        _textField1.mj_size = CGSizeMake(AppWidth-40, 40);
+        _textField1.placeholder = @"请输入第二行的文字";
+        NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultString1];
+        if (string) {
+            _textField1.text = string;
+        }
+    }
+    return _textField1;
 }
 
 
@@ -155,15 +196,42 @@ static NSString * kColorB = @"kColorB";
     return _bTextField;
 }
 
-- (UIButton *)finishButton {
-    if (!_finishButton) {
-        _finishButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_finishButton setTitle:@"确定" forState:UIControlStateNormal];
-        [_finishButton addTarget:self action:@selector(finishButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [_finishButton setBackgroundImage:[UIImage imageWithColor:RGBColor(0x52CBAB)] forState:UIControlStateNormal];
-        [_finishButton setBackgroundImage:[UIImage imageWithColor:RGBColor(0x91dec9)] forState:UIControlStateHighlighted];
+- (UIButton *)finishButton0 {
+    if (!_finishButton0) {
+        _finishButton0 = [UIButton buttonWithType:UIButtonTypeCustom];
+        _finishButton0.titleLabel.font = [UIFont systemFontOfSize:15];
+        _finishButton0.tag = 15;
+        [_finishButton0 setTitle:@"确定" forState:UIControlStateNormal];
+        [_finishButton0 addTarget:self action:@selector(finishButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_finishButton0 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x52CBAB)] forState:UIControlStateNormal];
+        [_finishButton0 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x91dec9)] forState:UIControlStateHighlighted];
     }
-    return _finishButton;
+    return _finishButton0;
+}
+- (UIButton *)finishButton1 {
+    if (!_finishButton1) {
+        _finishButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
+        _finishButton1.titleLabel.font = [UIFont systemFontOfSize:25];
+        _finishButton1.tag = 25;
+        [_finishButton1 setTitle:@"确定" forState:UIControlStateNormal];
+        [_finishButton1 addTarget:self action:@selector(finishButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_finishButton1 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x52CBAB)] forState:UIControlStateNormal];
+        [_finishButton1 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x91dec9)] forState:UIControlStateHighlighted];
+    }
+    return _finishButton1;
+}
+
+- (UIButton *)finishButton2 {
+    if (!_finishButton2) {
+        _finishButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+        _finishButton2.titleLabel.font = [UIFont systemFontOfSize:35];
+        _finishButton2.tag = 35;
+        [_finishButton2 setTitle:@"确定" forState:UIControlStateNormal];
+        [_finishButton2 addTarget:self action:@selector(finishButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_finishButton2 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x52CBAB)] forState:UIControlStateNormal];
+        [_finishButton2 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x91dec9)] forState:UIControlStateHighlighted];
+    }
+    return _finishButton2;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -177,10 +245,9 @@ static NSString * kColorB = @"kColorB";
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     
-    [self.textField resignFirstResponder];
-    [self.rTextField resignFirstResponder];
-    [self.gTextField resignFirstResponder];
-    [self.bTextField resignFirstResponder];
+    [self.view endEditing:YES];
 }
+
+
 
 @end
