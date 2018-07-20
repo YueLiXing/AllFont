@@ -1,6 +1,6 @@
 platform :ios,'8.0'
 #use_frameworks!
 target:'All-Font' do
-    pod 'MBProgressHUD'
+    pod 'MBProgressHUD', '~> 0.9.2'
     pod 'UITableView+FDTemplateLayoutCell'
 end
