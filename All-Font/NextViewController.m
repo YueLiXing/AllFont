@@ -8,14 +8,20 @@
 
 #import "NextViewController.h"
 #import "TableViewCell.h"
+#import "HeaderView.h"
 
 static NSString * identifier = @"TableViewCell";
+static NSString * headerIdentifier = @"headerIdentifier";
 
-@interface NextViewController ()
+static NSString * kSelectDict = @"kSelectDict";
+
+@interface NextViewController () <HeaderViewDelegate>
 
 @property (nonatomic, assign) BOOL isSingleLine;
 
-@property (nonatomic, retain) NSMutableArray<NSString *> * dataArray;
+@property (nonatomic, retain) NSMutableArray<SectionModel *> * dataArray;
+
+@property (nonatomic, retain) NSMutableDictionary * selectDict;
 
 @end
 
@@ -28,16 +34,50 @@ static NSString * identifier = @"TableViewCell";
     self.title = @"预览";
     
     self.tableView.rowHeight = 100;
+    
     [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:[HeaderView class] forHeaderFooterViewReuseIdentifier:headerIdentifier];
     
     NSArray * array = [UIFont familyNames];
+    NSMutableDictionary * selectDict = [NSUserDefaults objectForKey:kSelectDict];
+    BOOL flag = NO;
+    if (selectDict) {
+        selectDict = [[NSMutableDictionary alloc] initWithDictionary:selectDict];
+        flag = YES;
+    } else {
+        selectDict = [[NSMutableDictionary alloc] init];
+    }
+    self.selectDict = selectDict;
     for (NSString * family in array) {
-        [self.dataArray addObjectsFromArray:[UIFont fontNamesForFamilyName:family]];
+        SectionModel * model = [[SectionModel alloc] init];
+        model.title = family;
+        if (flag) {
+            model.isSelect = [[selectDict objectForKey:family] boolValue];
+        } else {
+            model.isSelect = YES;
+            [selectDict setObject:@(YES) forKey:family];
+        }
+        model.array = [UIFont fontNamesForFamilyName:family];
+        if (model.array.count > 0) {
+            [self.dataArray addObject:model];
+        }
+    }
+    if (flag == NO) {
+        [NSUserDefaults saveObject:selectDict Key:kSelectDict];
     }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataArray.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    SectionModel * model = self.dataArray[section];
+    if (model.isSelect) {
+        return model.array.count;
+    } else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,9 +89,20 @@ static NSString * identifier = @"TableViewCell";
 - (void)configCell:(TableViewCell *)cell IndexPath:(NSIndexPath *)indexPath {
     cell.isSingleLine = self.isSingleLine;
     cell.fontSize = self.fontSize;
-    [cell setTitle:self.text SubTitle:self.text1 FontName:self.dataArray[indexPath.row] Color:self.color];
+    [cell setTitle:self.text SubTitle:self.text1 FontName:self.dataArray[indexPath.section].array[indexPath.row] Color:self.color];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    HeaderView * headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    headerView.fontSize = self.fontSize;
+    headerView.model = [self.dataArray objectAtIndex:section];
+    headerView.delegate = self;
+    return headerView;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(TableViewCell * cell) {
@@ -63,10 +114,22 @@ static NSString * identifier = @"TableViewCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self showHint:@"已保存到粘贴板"];
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = self.dataArray[indexPath.row];
+    pasteboard.string = self.dataArray[indexPath.section].array[indexPath.row];
 }
 
-- (NSMutableArray<NSString *> *)dataArray {
+// MARK: - HeaderViewDelegate
+
+- (void)headerViewDidSelect:(HeaderView *)headerView {
+    headerView.model.isSelect = !headerView.model.isSelect;
+    [self.tableView reloadData];
+    
+    [self.selectDict setObject:@(headerView.model.isSelect) forKey:headerView.model.title];
+    [NSUserDefaults saveObject:self.selectDict Key:kSelectDict];
+}
+
+// MARK: - get
+
+- (NSMutableArray<SectionModel *> *)dataArray {
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc] init];
     }

@@ -76,20 +76,19 @@ static NSString * kColorB = @"kColorB";
         if (0 <= r && r <= 255) {
             if (0 <= g && g <= 255) {
                 if (0 <= b && b <= 255) {
-                    [[NSUserDefaults standardUserDefaults] setObject:self.textField.text forKey:kDefaultString];
+                    [NSUserDefaults saveObject:self.textField.text Key:kDefaultString];
                     
                     if (self.textField1.text && self.textField1.text.length > 0) {
-                        [[NSUserDefaults standardUserDefaults] setObject:self.textField1.text forKey:kDefaultString1];
+                        [NSUserDefaults saveObject:self.textField1.text Key:kDefaultString1];
                     } else {
-                        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kDefaultString1];
+                        [NSUserDefaults removeObject:kDefaultString1];
                     }
                     
+                    [NSUserDefaults saveObject:self.rTextField.text Key:kColorR];
+                    [NSUserDefaults saveObject:self.gTextField.text Key:kColorG];
+                    [NSUserDefaults saveObject:self.bTextField.text Key:kColorB];
                     
-                    [[NSUserDefaults standardUserDefaults] setObject:self.rTextField.text forKey:kColorR];
-                    [[NSUserDefaults standardUserDefaults] setObject:self.gTextField.text forKey:kColorG];
-                    [[NSUserDefaults standardUserDefaults] setObject:self.bTextField.text forKey:kColorB];
                     
-                    [[NSUserDefaults standardUserDefaults] synchronize];
                     
                     NextViewController * nextVC = [[NextViewController alloc] init];
                     nextVC.fontSize = (CGFloat)button.tag;
@@ -118,7 +117,7 @@ static NSString * kColorB = @"kColorB";
         _textField.delegate = self;
         _textField.mj_size = CGSizeMake(AppWidth-40, 40);
         _textField.placeholder = @"请输入第一行的文字";
-        NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultString];
+        NSString * string = [NSUserDefaults objectForKey:kDefaultString];
         if (string) {
             _textField.text = string;
         }
@@ -134,7 +133,7 @@ static NSString * kColorB = @"kColorB";
         _textField1.delegate = self;
         _textField1.mj_size = CGSizeMake(AppWidth-40, 40);
         _textField1.placeholder = @"请输入第二行的文字";
-        NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultString1];
+        NSString * string = [NSUserDefaults objectForKey:kDefaultString1];
         if (string) {
             _textField1.text = string;
         }
@@ -152,7 +151,7 @@ static NSString * kColorB = @"kColorB";
         _rTextField.delegate = self;
         _rTextField.mj_size = CGSizeMake(AppWidth-40, 40);
         _rTextField.placeholder = @"R-RGB";
-        NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kColorR];
+        NSString * string = [NSUserDefaults objectForKey:kColorR];
         if (string) {
             _rTextField.text = string;
         }
@@ -170,7 +169,7 @@ static NSString * kColorB = @"kColorB";
         _gTextField.delegate = self;
         _gTextField.mj_size = CGSizeMake(AppWidth-40, 40);
         _gTextField.placeholder = @"G-RGB";
-        NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kColorG];
+        NSString * string = [NSUserDefaults objectForKey:kColorG];
         if (string) {
             _gTextField.text = string;
         }
@@ -188,7 +187,7 @@ static NSString * kColorB = @"kColorB";
         _bTextField.delegate = self;
         _bTextField.mj_size = CGSizeMake(AppWidth-40, 40);
         _bTextField.placeholder = @"B-RGB";
-        NSString * string = [[NSUserDefaults standardUserDefaults] objectForKey:kColorB];
+        NSString * string = [NSUserDefaults objectForKey:kColorB];
         if (string) {
             _bTextField.text = string;
         }
