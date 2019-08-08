@@ -36,7 +36,10 @@
 
 - (void)setModel:(SectionModel *)model {
     _model = model;
-    self.titleLabel.font = [UIFont systemFontOfSize:self.fontSize*0.5];
+    NSString * tempFontName = [UIFont fontNamesForFamilyName:model.title].firstObject;
+//    NSLog(@"tempFontName %@", tempFontName);
+    self.titleLabel.font = [UIFont fontWithName:tempFontName size:self.fontSize*0.5];
+//    self.titleLabel.font = [UIFont systemFontOfSize:self.fontSize*0.5];
     self.titleLabel.text = model.title;
     [self.titleLabel sizeToFit];
     

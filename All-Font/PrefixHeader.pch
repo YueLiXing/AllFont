@@ -9,6 +9,9 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+
+#import "Logger.h"
+#import "IdentifierForReusable.h"
 #import "UIViewController+HUD.h"
 #import "UIImage+Color.h"
 #import "NSString+Extension.h"

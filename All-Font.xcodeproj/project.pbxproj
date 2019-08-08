@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BFB050AB7A4420884AD08BF8 /* libPods-All-Font.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 039354FF48CF3EC91E828279 /* libPods-All-Font.a */; };
 		CD714F2A210586E7003B437D /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD714F29210586E7003B437D /* HeaderView.m */; };
+		CD90C2C722FC03AA000A5C3A /* LogCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD90C2C622FC03AA000A5C3A /* LogCategory.m */; };
+		CD90C2CB22FC05DB000A5C3A /* IdentifierForReusable.m in Sources */ = {isa = PBXBuildFile; fileRef = CD90C2CA22FC05DB000A5C3A /* IdentifierForReusable.m */; };
 		CDD6678A210587C500ED5DAA /* SectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD66789210587C500ED5DAA /* SectionModel.m */; };
 		CDD6678D21058D1700ED5DAA /* NSUserDefaults+KeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD6678C21058D1700ED5DAA /* NSUserDefaults+KeyValue.m */; };
 		CDDA904F1C292A0C00130A6E /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDA904E1C292A0C00130A6E /* UIImage+Color.m */; };
@@ -30,6 +32,11 @@
 		BFBD599A901A119929EF7994 /* Pods-All-Font.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Font.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-Font/Pods-All-Font.debug.xcconfig"; sourceTree = "<group>"; };
 		CD714F28210586E7003B437D /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		CD714F29210586E7003B437D /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		CD90C2C322FC03AA000A5C3A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		CD90C2C522FC03AA000A5C3A /* LogCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogCategory.h; sourceTree = "<group>"; };
+		CD90C2C622FC03AA000A5C3A /* LogCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogCategory.m; sourceTree = "<group>"; };
+		CD90C2C922FC05DB000A5C3A /* IdentifierForReusable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifierForReusable.h; sourceTree = "<group>"; };
+		CD90C2CA22FC05DB000A5C3A /* IdentifierForReusable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifierForReusable.m; sourceTree = "<group>"; };
 		CDD66788210587C500ED5DAA /* SectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionModel.h; sourceTree = "<group>"; };
 		CDD66789210587C500ED5DAA /* SectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionModel.m; sourceTree = "<group>"; };
 		CDD6678B21058D1700ED5DAA /* NSUserDefaults+KeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+KeyValue.h"; sourceTree = "<group>"; };
@@ -90,6 +97,9 @@
 		CD714F2B21058768003B437D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				CD90C2C822FC05DB000A5C3A /* IdentifierForReusable */,
+				CD90C2C422FC03AA000A5C3A /* LogCategory */,
+				CD90C2C322FC03AA000A5C3A /* Logger.h */,
 				CDD6678B21058D1700ED5DAA /* NSUserDefaults+KeyValue.h */,
 				CDD6678C21058D1700ED5DAA /* NSUserDefaults+KeyValue.m */,
 				CDDA90501C292D8600130A6E /* NSString+Extension.h */,
@@ -111,6 +121,24 @@
 				CDD66789210587C500ED5DAA /* SectionModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CD90C2C422FC03AA000A5C3A /* LogCategory */ = {
+			isa = PBXGroup;
+			children = (
+				CD90C2C522FC03AA000A5C3A /* LogCategory.h */,
+				CD90C2C622FC03AA000A5C3A /* LogCategory.m */,
+			);
+			path = LogCategory;
+			sourceTree = "<group>";
+		};
+		CD90C2C822FC05DB000A5C3A /* IdentifierForReusable */ = {
+			isa = PBXGroup;
+			children = (
+				CD90C2C922FC05DB000A5C3A /* IdentifierForReusable.h */,
+				CD90C2CA22FC05DB000A5C3A /* IdentifierForReusable.m */,
+			);
+			path = IdentifierForReusable;
 			sourceTree = "<group>";
 		};
 		CDD667872105879A00ED5DAA /* SupportFile */ = {
@@ -179,10 +207,10 @@
 		CDE6F57E1C1598FE001859B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CDE6F57F1C159918001859B4 /* TableViewCell.h */,
-				CDE6F5801C159918001859B4 /* TableViewCell.m */,
 				CD714F28210586E7003B437D /* HeaderView.h */,
 				CD714F29210586E7003B437D /* HeaderView.m */,
+				CDE6F57F1C159918001859B4 /* TableViewCell.h */,
+				CDE6F5801C159918001859B4 /* TableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -228,6 +256,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -281,6 +310,8 @@
 			files = (
 				CDE6F5861C159969001859B4 /* UIViewController+HUD.m in Sources */,
 				CDD6678D21058D1700ED5DAA /* NSUserDefaults+KeyValue.m in Sources */,
+				CD90C2C722FC03AA000A5C3A /* LogCategory.m in Sources */,
+				CD90C2CB22FC05DB000A5C3A /* IdentifierForReusable.m in Sources */,
 				CD714F2A210586E7003B437D /* HeaderView.m in Sources */,
 				CDE6F56A1C159416001859B4 /* ViewController.m in Sources */,
 				CDE6F57C1C15958C001859B4 /* NextViewController.m in Sources */,

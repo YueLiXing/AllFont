@@ -10,9 +10,6 @@
 #import "TableViewCell.h"
 #import "HeaderView.h"
 
-static NSString * identifier = @"TableViewCell";
-static NSString * headerIdentifier = @"headerIdentifier";
-
 static NSString * kSelectDict = @"kSelectDict";
 
 @interface NextViewController () <HeaderViewDelegate>
@@ -35,8 +32,8 @@ static NSString * kSelectDict = @"kSelectDict";
     
     self.tableView.rowHeight = 100;
     
-    [self.tableView registerClass:[TableViewCell class] forCellReuseIdentifier:identifier];
-    [self.tableView registerClass:[HeaderView class] forHeaderFooterViewReuseIdentifier:headerIdentifier];
+    [self.tableView lx_registerCellClass:[TableViewCell class]];
+    [self.tableView lx_registerHeaderFooterClass:[HeaderView class]];
     
     NSArray * array = [UIFont familyNames];
     NSMutableDictionary * selectDict = [NSUserDefaults objectForKey:kSelectDict];
@@ -60,6 +57,9 @@ static NSString * kSelectDict = @"kSelectDict";
         model.array = [UIFont fontNamesForFamilyName:family];
         if (model.array.count > 0) {
             [self.dataArray addObject:model];
+            
+//            NSLog(@"%@", model.array);
+//            break;
         }
     }
     if (flag == NO) {
@@ -81,7 +81,7 @@ static NSString * kSelectDict = @"kSelectDict";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    TableViewCell * cell = [tableView lx_dequeueReusableCellWithClass:[TableViewCell class] forIndexPath:indexPath];
     [self configCell:cell IndexPath:indexPath];
     return cell;
 }
@@ -97,7 +97,7 @@ static NSString * kSelectDict = @"kSelectDict";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    HeaderView * headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    HeaderView * headerView = [tableView lx_dequeueReusableHeaderFooterViewWithClass:[HeaderView class]];
     headerView.fontSize = self.fontSize;
     headerView.model = [self.dataArray objectAtIndex:section];
     headerView.delegate = self;
@@ -105,7 +105,7 @@ static NSString * kSelectDict = @"kSelectDict";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [tableView fd_heightForCellWithIdentifier:identifier configuration:^(TableViewCell * cell) {
+    return [tableView fd_heightForCellWithIdentifier:[TableViewCell identifierForReusable] cacheByIndexPath:indexPath configuration:^(id cell) {
         [self configCell:cell IndexPath:indexPath];
     }];
 }
