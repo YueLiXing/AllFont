@@ -29,6 +29,10 @@
 #define AppWidth                         [[UIScreen mainScreen] bounds].size.width
 #define AppHeight                        [[UIScreen mainScreen] bounds].size.height
 
+#define StatusBarHeight     ([UIApplication sharedApplication].statusBarFrame.size.height)
+#define BottomSafeHeight    (StatusBarHeight > 20 ? 34.0 : 0)
+#define NavBarHeight        (StatusBarHeight+44)
+
 #import "UIView+MJExtension.h"
 
 #endif /* PrefixHeader_pch */

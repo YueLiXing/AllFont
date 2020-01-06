@@ -48,7 +48,7 @@ static NSString * kColorB = @"kColorB";
     [self.view addSubview:self.finishButton1];
     [self.view addSubview:self.finishButton2];
     
-    self.textField.mj_y = 64+5;
+    self.textField.mj_y = NavBarHeight+5;
     self.rTextField.mj_centerX = self.gTextField.mj_centerX = self.bTextField.mj_centerX = self.textField.mj_centerX = self.textField1.mj_centerX = AppWidth/2.0;
     self.textField1.mj_y = self.textField.max_y+5;
     self.rTextField.mj_y = self.textField1.max_y+5;
