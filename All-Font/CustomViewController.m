@@ -16,7 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"自定义";
+    self.view.backgroundColor = UIColor.whiteColor;
+    
+    UILabel *label = [[UILabel alloc] init];
+    // 得意黑
+    // https://github.com/atelier-anchor/smiley-sans/releases/tag/v1.0.0
+    label.font = [UIFont fontWithName:@"SmileySans-Oblique" size:30];
+    label.text = self.text;
+    [self.view addSubview:label];
+    label.mj_y = NavBarHeight;
+    label.mj_x = 5;
+    label.mj_size = [label sizeThatFits:CGSizeMake(AppWidth - 10, 40)];
 }
 
 /*

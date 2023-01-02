@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NextViewController.h"
+#import "CustomViewController.h"
 
 static NSString * kDefaultString = @"kDefaultString";
 static NSString * kDefaultString1 = @"kDefaultString1";
@@ -27,6 +28,7 @@ static NSString * kColorB = @"kColorB";
 @property (nonatomic, retain) UIButton * finishButton0;
 @property (nonatomic, retain) UIButton * finishButton1;
 @property (nonatomic, retain) UIButton * finishButton2;
+@property (nonatomic, retain) UIButton * finishButton3;
 
 @end
 
@@ -47,6 +49,7 @@ static NSString * kColorB = @"kColorB";
     [self.view addSubview:self.finishButton0];
     [self.view addSubview:self.finishButton1];
     [self.view addSubview:self.finishButton2];
+    [self.view addSubview:self.finishButton3];
     
     self.textField.mj_y = NavBarHeight+5;
     self.rTextField.mj_centerX = self.gTextField.mj_centerX = self.bTextField.mj_centerX = self.textField.mj_centerX = self.textField1.mj_centerX = AppWidth/2.0;
@@ -58,11 +61,13 @@ static NSString * kColorB = @"kColorB";
     self.finishButton0.mj_size = CGSizeMake(100, 40);
     self.finishButton1.mj_size = CGSizeMake(100, 40);
     self.finishButton2.mj_size = CGSizeMake(120, 60);
+    self.finishButton3.mj_size = CGSizeMake(200, 60);
     
-    self.finishButton0.mj_centerX = self.finishButton1.mj_centerX = self.finishButton2.mj_centerX = AppWidth/2.0;
+    self.finishButton0.mj_centerX = self.finishButton1.mj_centerX = self.finishButton2.mj_centerX = self.finishButton3.mj_centerX = AppWidth/2.0;
     self.finishButton0.mj_y = self.bTextField.max_y+5;
     self.finishButton1.mj_y = self.finishButton0.max_y+5;
     self.finishButton2.mj_y = self.finishButton1.max_y+5;
+    self.finishButton3.mj_y = self.finishButton2.max_y+5;
     [self.finishButton0 makeCorRadius];
     [self.finishButton1 makeCorRadius];
     [self.finishButton2 makeCorRadius];
@@ -73,6 +78,12 @@ static NSString * kColorB = @"kColorB";
         int r = self.rTextField.text.intValue;
         int g = self.gTextField.text.intValue;
         int b = self.bTextField.text.intValue;
+        if (button.tag == 36) {
+            CustomViewController *vc = [[CustomViewController alloc] init];
+            vc.text = self.textField.text;
+            [self.navigationController pushViewController:vc animated:YES];
+            return;
+        }
         if (0 <= r && r <= 255) {
             if (0 <= g && g <= 255) {
                 if (0 <= b && b <= 255) {
@@ -231,6 +242,18 @@ static NSString * kColorB = @"kColorB";
         [_finishButton2 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x91dec9)] forState:UIControlStateHighlighted];
     }
     return _finishButton2;
+}
+- (UIButton *)finishButton3 {
+    if (!_finishButton3) {
+        _finishButton3 = [UIButton buttonWithType:UIButtonTypeCustom];
+        _finishButton3.titleLabel.font = [UIFont systemFontOfSize:35];
+        _finishButton3.tag = 36;
+        [_finishButton3 setTitle:@"自定义字体" forState:UIControlStateNormal];
+        [_finishButton3 addTarget:self action:@selector(finishButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_finishButton3 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x52CBAB)] forState:UIControlStateNormal];
+        [_finishButton3 setBackgroundImage:[UIImage imageWithColor:RGBColor(0x91dec9)] forState:UIControlStateHighlighted];
+    }
+    return _finishButton3;
 }
 
 #pragma mark - UITextFieldDelegate
