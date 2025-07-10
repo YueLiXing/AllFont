@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -255,12 +255,11 @@
 				TargetAttributes = {
 					CDE6F55E1C159416001859B4 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = K8SLU287T8;
 					};
 				};
 			};
 			buildConfigurationList = CDE6F55A1C159416001859B4 /* Build configuration list for PBXProject "All-Font" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -454,12 +453,15 @@
 			baseConfigurationReference = BFBD599A901A119929EF7994 /* Pods-All-Font.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K8SLU287T8;
+				DEVELOPMENT_TEAM = NS5M4FJUX9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/All-Font/PrefixHeader.pch";
 				INFOPLIST_FILE = "All-Font/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tutuim..All-Font";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haier.allfont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -469,12 +471,15 @@
 			baseConfigurationReference = 6B029121F36CC6778AAA8913 /* Pods-All-Font.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K8SLU287T8;
+				DEVELOPMENT_TEAM = NS5M4FJUX9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/All-Font/PrefixHeader.pch";
 				INFOPLIST_FILE = "All-Font/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tutuim..All-Font";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.haier.allfont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

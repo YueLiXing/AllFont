@@ -7,7 +7,7 @@ DEPENDENCIES:
   - "UITableView+FDTemplateLayoutCell"
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - MBProgressHUD
     - "UITableView+FDTemplateLayoutCell"
 
@@ -15,6 +15,6 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
 
-PODFILE CHECKSUM: cefe161979334a1146760d07e447866157fd165a
+PODFILE CHECKSUM: 9ab025c7fb97231a3f91a31038430a63e830dc99
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.16.2
